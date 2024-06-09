@@ -1,0 +1,34 @@
+<template>
+  <div class="slds-grid slds-wrap">
+    <div class="slds-col">
+      <lightning-card title="Weather Forecasting">
+        <div class="slds-m-around_medium">
+          <lightning-input
+            label="Enter City"
+            onchange={handleCity}
+          ></lightning-input>
+        </div>
+        <lightning-button
+          class="slds-m-around_medium"
+          label="Fetch Weather"
+          variant="brand"
+          onclick={handleGetWeather}
+        ></lightning-button>
+        <div if:true={weatherIcon}>
+          <img src={weatherIcon} alt="weather icon not found" />
+          <strong>{weatherText}</strong>
+          <strong
+            ><h1>Temperature -</h1>
+            {temp}</strong
+          >
+        </div>
+      </lightning-card>
+    </div>
+    <div class="slds-col">
+      <lightning-card>
+        <lightning-map map-markers={mapMarkers} zoom-level={zoomLevel}>
+        </lightning-map>
+      </lightning-card>
+    </div>
+  </div>
+</template>
